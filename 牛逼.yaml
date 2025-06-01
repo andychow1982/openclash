@@ -1,0 +1,1244 @@
+---
+mixed-port: 7893
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+  fallback:
+  - https://doh.dns.sb/dns-query
+  - https://dns.cloudflare.com/dns-query
+  - https://dns.twnic.tw/dns-query
+  - tls://8.8.4.4:853
+  fallback-filter:
+    geoip: true
+    ipcidr:
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+proxies:
+- name: 建议每次使用前都更新一下订阅
+  type: ss
+  server: hzhz1.sssyun.xyz
+  port: 29527
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港1"
+  server: hk1.jueduibupao.top
+  port: 50001
+  sni: hk1.jueduibupao.top
+  up: 100
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1ED\U0001F1F0香港2"
+  server: hk2.jueduibupao.top
+  port: 47566
+  sni: hk2.jueduibupao.top
+  up: 100
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1F8\U0001F1EC新加坡1"
+  server: linsg1.jueduibupao.top
+  port: 49486
+  sni: linsg1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1F8\U0001F1EC新加坡2"
+  server: linsg2.jueduibupao.top
+  port: 47663
+  sni: linsg2.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1F8\U0001F1EC新加坡3"
+  server: linsg3.jueduibupao.top
+  port: 30054
+  sni: linsg3.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1E8\U0001F1F3台湾1-Gpt"
+  server: tw2.jueduibupao.top
+  port: 30078
+  sni: tw2.jueduibupao.top
+  up: 200
+  down: 200
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1E8\U0001F1F3台湾2-Gpt"
+  server: tw22.jueduibupao.top
+  port: 30104
+  sni: tw22.jueduibupao.top
+  up: 200
+  down: 200
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1EF\U0001F1F5日本1"
+  server: linjp1.jueduibupao.top
+  port: 46517
+  sni: linjp1.jueduibupao.top
+  up: 100
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1EF\U0001F1F5日本2"
+  server: linjp2.jueduibupao.top
+  port: 48293
+  sni: linjp2.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1F0\U0001F1F7韩国-家宽"
+  server: 6bkr1.6bnw.top
+  port: 10100
+  sni: 6bkr1.6bnw.top
+  up: 100
+  down: 100
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1F9\U0001F1ED曼谷"
+  server: th1.jueduibupao.top
+  port: 30000
+  sni: th1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1EE\U0001F1E9印尼"
+  server: in1.jueduibupao.top
+  port: 30000
+  sni: in1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1FA\U0001F1F8拉斯维加斯"
+  server: lvs.jueduibupao.top
+  port: 50001
+  sni: lvs.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1FA\U0001F1F8凤凰城"
+  server: ny.jueduibupao.top
+  port: 50001
+  sni: ny.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1FA\U0001F1F8圣何塞"
+  server: azcus1.jueduibupao.top
+  port: 20101
+  sni: azcus1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+- name: "\U0001F1E8\U0001F1E6加拿大"
+  server: ca1.jueduibupao.top
+  port: 48445
+  sni: ca1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1E9\U0001F1EA德国"
+  server: de1.jueduibupao.top
+  port: 47750
+  sni: de1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1EC\U0001F1E7英国"
+  server: uk1.jueduibupao.top
+  port: 46856
+  sni: uk1.jueduibupao.top
+  up: 300
+  down: 300
+  skip-cert-verify: true
+  type: hysteria2
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  ports: 40000-50000
+- name: "\U0001F1ED\U0001F1F0香港01-IPv6"
+  type: ss
+  server: g1.66jc.top
+  port: 29527
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港02-IPv6"
+  type: ss
+  server: g2.66jc.top
+  port: 40010
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港03-IPv6"
+  type: ss
+  server: g1.66jc.top
+  port: 19527
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港04-IPv6"
+  type: ss
+  server: g2.66jc.top
+  port: 40023
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港05-流媒体解锁"
+  type: ss
+  server: g1.66jc.top
+  port: 39301
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1ED\U0001F1F0香港06-流媒体解锁"
+  type: ss
+  server: g2.66jc.top
+  port: 40011
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F8\U0001F1EC新加坡01-流媒体解锁"
+  type: ss
+  server: g1.66jc.top
+  port: 39204
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F8\U0001F1EC新加坡02-流媒体解锁"
+  type: ss
+  server: g2.66jc.top
+  port: 40013
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F8\U0001F1EC新加坡03"
+  type: ss
+  server: g1.66jc.top
+  port: 39505
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F8\U0001F1EC新加坡04"
+  type: ss
+  server: g2.66jc.top
+  port: 44014
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F0\U0001F1F7韩国-家宽03"
+  type: ss
+  server: g1.66jc.top
+  port: 39206
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1F0\U0001F1F7韩国-家宽04"
+  type: ss
+  server: g2.66jc.top
+  port: 20116
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E8\U0001F1F3台湾01-Gpt"
+  type: ss
+  server: g1.66jc.top
+  port: 32207
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E8\U0001F1F3台湾02-Gpt"
+  type: ss
+  server: g2.66jc.top
+  port: 40017
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E8\U0001F1F3台湾03-Gpt"
+  type: ss
+  server: g2.66jc.top
+  port: 39201
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E8\U0001F1F3台湾04-Gpt"
+  type: ss
+  server: g2.66jc.top
+  port: 40018
+  cipher: 2022-blake3-aes-128-gcm
+  password: NjVhMWE2YmVmNzg4MTcwMA==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EF\U0001F1F5日本01"
+  type: ss
+  server: g1.66jc.top
+  port: 19529
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EF\U0001F1F5日本02"
+  type: ss
+  server: g2.66jc.top
+  port: 40019
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EF\U0001F1F5日本03"
+  type: ss
+  server: g1.66jc.top
+  port: 49207
+  cipher: 2022-blake3-aes-256-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNjE5OWQyNDYxZjM1MjA0OTg=:NzE2YWNhZWQtMzRjNi00MmQ0LWFmYzEtMjkzZTg2NWE=
+  udp: true
+- name: "\U0001F1EF\U0001F1F5日本04"
+  type: ss
+  server: g2.66jc.top
+  port: 40020
+  cipher: 2022-blake3-aes-256-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNjE5OWQyNDYxZjM1MjA0OTg=:NzE2YWNhZWQtMzRjNi00MmQ0LWFmYzEtMjkzZTg2NWE=
+  udp: true
+- name: "\U0001F1E8\U0001F1E6加拿大01"
+  type: ss
+  server: g1.66jc.top
+  port: 39209
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E8\U0001F1E6加拿大02"
+  type: ss
+  server: g2.66jc.top
+  port: 40021
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国凤凰城01"
+  type: ss
+  server: g1.66jc.top
+  port: 12980
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国凤凰城02"
+  type: ss
+  server: g2.66jc.top
+  port: 12981
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国拉斯维加斯01"
+  type: ss
+  server: g1.66jc.top
+  port: 12983
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国拉斯维加斯02"
+  type: ss
+  server: g2.66jc.top
+  port: 12984
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国圣何塞01"
+  type: ss
+  server: g1.66jc.top
+  port: 39203
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1FA\U0001F1F8美国圣何塞02"
+  type: ss
+  server: g2.66jc.top
+  port: 40022
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E9\U0001F1EA德国01"
+  type: ss
+  server: g1.66jc.top
+  port: 39987
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1E9\U0001F1EA德国02"
+  type: ss
+  server: g2.66jc.top
+  port: 39981
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EC\U0001F1E7英国01"
+  type: ss
+  server: g1.66jc.top
+  port: 32988
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EC\U0001F1E7英国02"
+  type: ss
+  server: g2.66jc.top
+  port: 32989
+  cipher: 2022-blake3-aes-128-gcm
+  password: MDhhMTdjZDI0MjI2ZWRlNg==:NzE2YWNhZWQtMzRjNi00Mg==
+  udp: true
+- name: "\U0001F1EC\U0001F1E7英国03"
+  type: ss
+  server: g1.66jc.top
+  port: 36988
+  cipher: chacha20-ietf-poly1305
+  password: 716acaed-34c6-42d4-afc1-293e865a01b8
+  udp: true
+- name: "\U0001F1FA\U0001F1F8拉斯维加斯01-下载&防失联-0.1X"
+  type: vmess
+  server: mugen11.6bnw.top
+  port: 8080
+  uuid: 716acaed-34c6-42d4-afc1-293e865a01b8
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: "/?ed=2560"
+    headers:
+      Host: buyvmus2.6bnw.top
+  ws-path: "/?ed=2560"
+  ws-headers:
+    Host: buyvmus2.6bnw.top
+- name: "\U0001F1FA\U0001F1F8拉斯维加斯02-下载&防失联-0.1X"
+  type: vmess
+  server: mugen22.6bnw.top
+  port: 8080
+  uuid: 716acaed-34c6-42d4-afc1-293e865a01b8
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: "/?ed=2560"
+    headers:
+      Host: buyvmus2.6bnw.top
+  ws-path: "/?ed=2560"
+  ws-headers:
+    Host: buyvmus2.6bnw.top
+- name: "\U0001F1FA\U0001F1F8拉斯维加斯03-下载&防失联-0.1X"
+  type: vmess
+  server: mugen33.6bnw.top
+  port: 8080
+  uuid: 716acaed-34c6-42d4-afc1-293e865a01b8
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: "/?ed=2560"
+    headers:
+      Host: buyvmus2.6bnw.top
+  ws-path: "/?ed=2560"
+  ws-headers:
+    Host: buyvmus2.6bnw.top
+- name: "\U0001F1FA\U0001F1F8拉斯维加斯04-下载&防失联-0.1X"
+  type: vmess
+  server: mugen44.6bnw.top
+  port: 8080
+  uuid: 716acaed-34c6-42d4-afc1-293e865a01b8
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: "/?ed=2560"
+    headers:
+      Host: buyvmus2.6bnw.top
+  ws-path: "/?ed=2560"
+  ws-headers:
+    Host: buyvmus2.6bnw.top
+proxy-groups:
+- name: "\U0001F42E牛逼"
+  type: select
+  proxies:
+  - 自动选择
+  - 故障转移
+  - 建议每次使用前都更新一下订阅
+  - "\U0001F1ED\U0001F1F0香港1"
+  - "\U0001F1ED\U0001F1F0香港2"
+  - "\U0001F1F8\U0001F1EC新加坡1"
+  - "\U0001F1F8\U0001F1EC新加坡2"
+  - "\U0001F1F8\U0001F1EC新加坡3"
+  - "\U0001F1E8\U0001F1F3台湾1-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾2-Gpt"
+  - "\U0001F1EF\U0001F1F5日本1"
+  - "\U0001F1EF\U0001F1F5日本2"
+  - "\U0001F1F0\U0001F1F7韩国-家宽"
+  - "\U0001F1F9\U0001F1ED曼谷"
+  - "\U0001F1EE\U0001F1E9印尼"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯"
+  - "\U0001F1FA\U0001F1F8凤凰城"
+  - "\U0001F1FA\U0001F1F8圣何塞"
+  - "\U0001F1E8\U0001F1E6加拿大"
+  - "\U0001F1E9\U0001F1EA德国"
+  - "\U0001F1EC\U0001F1E7英国"
+  - "\U0001F1ED\U0001F1F0香港01-IPv6"
+  - "\U0001F1ED\U0001F1F0香港02-IPv6"
+  - "\U0001F1ED\U0001F1F0香港03-IPv6"
+  - "\U0001F1ED\U0001F1F0香港04-IPv6"
+  - "\U0001F1ED\U0001F1F0香港05-流媒体解锁"
+  - "\U0001F1ED\U0001F1F0香港06-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡01-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡02-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡03"
+  - "\U0001F1F8\U0001F1EC新加坡04"
+  - "\U0001F1F0\U0001F1F7韩国-家宽03"
+  - "\U0001F1F0\U0001F1F7韩国-家宽04"
+  - "\U0001F1E8\U0001F1F3台湾01-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾02-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾03-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾04-Gpt"
+  - "\U0001F1EF\U0001F1F5日本01"
+  - "\U0001F1EF\U0001F1F5日本02"
+  - "\U0001F1EF\U0001F1F5日本03"
+  - "\U0001F1EF\U0001F1F5日本04"
+  - "\U0001F1E8\U0001F1E6加拿大01"
+  - "\U0001F1E8\U0001F1E6加拿大02"
+  - "\U0001F1FA\U0001F1F8美国凤凰城01"
+  - "\U0001F1FA\U0001F1F8美国凤凰城02"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯01"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯02"
+  - "\U0001F1FA\U0001F1F8美国圣何塞01"
+  - "\U0001F1FA\U0001F1F8美国圣何塞02"
+  - "\U0001F1E9\U0001F1EA德国01"
+  - "\U0001F1E9\U0001F1EA德国02"
+  - "\U0001F1EC\U0001F1E7英国01"
+  - "\U0001F1EC\U0001F1E7英国02"
+  - "\U0001F1EC\U0001F1E7英国03"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯01-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯02-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯03-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯04-下载&防失联-0.1X"
+- name: 自动选择
+  type: url-test
+  proxies:
+  - 建议每次使用前都更新一下订阅
+  - "\U0001F1ED\U0001F1F0香港1"
+  - "\U0001F1ED\U0001F1F0香港2"
+  - "\U0001F1F8\U0001F1EC新加坡1"
+  - "\U0001F1F8\U0001F1EC新加坡2"
+  - "\U0001F1F8\U0001F1EC新加坡3"
+  - "\U0001F1E8\U0001F1F3台湾1-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾2-Gpt"
+  - "\U0001F1EF\U0001F1F5日本1"
+  - "\U0001F1EF\U0001F1F5日本2"
+  - "\U0001F1F0\U0001F1F7韩国-家宽"
+  - "\U0001F1F9\U0001F1ED曼谷"
+  - "\U0001F1EE\U0001F1E9印尼"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯"
+  - "\U0001F1FA\U0001F1F8凤凰城"
+  - "\U0001F1FA\U0001F1F8圣何塞"
+  - "\U0001F1E8\U0001F1E6加拿大"
+  - "\U0001F1E9\U0001F1EA德国"
+  - "\U0001F1EC\U0001F1E7英国"
+  - "\U0001F1ED\U0001F1F0香港01-IPv6"
+  - "\U0001F1ED\U0001F1F0香港02-IPv6"
+  - "\U0001F1ED\U0001F1F0香港03-IPv6"
+  - "\U0001F1ED\U0001F1F0香港04-IPv6"
+  - "\U0001F1ED\U0001F1F0香港05-流媒体解锁"
+  - "\U0001F1ED\U0001F1F0香港06-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡01-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡02-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡03"
+  - "\U0001F1F8\U0001F1EC新加坡04"
+  - "\U0001F1F0\U0001F1F7韩国-家宽03"
+  - "\U0001F1F0\U0001F1F7韩国-家宽04"
+  - "\U0001F1E8\U0001F1F3台湾01-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾02-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾03-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾04-Gpt"
+  - "\U0001F1EF\U0001F1F5日本01"
+  - "\U0001F1EF\U0001F1F5日本02"
+  - "\U0001F1EF\U0001F1F5日本03"
+  - "\U0001F1EF\U0001F1F5日本04"
+  - "\U0001F1E8\U0001F1E6加拿大01"
+  - "\U0001F1E8\U0001F1E6加拿大02"
+  - "\U0001F1FA\U0001F1F8美国凤凰城01"
+  - "\U0001F1FA\U0001F1F8美国凤凰城02"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯01"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯02"
+  - "\U0001F1FA\U0001F1F8美国圣何塞01"
+  - "\U0001F1FA\U0001F1F8美国圣何塞02"
+  - "\U0001F1E9\U0001F1EA德国01"
+  - "\U0001F1E9\U0001F1EA德国02"
+  - "\U0001F1EC\U0001F1E7英国01"
+  - "\U0001F1EC\U0001F1E7英国02"
+  - "\U0001F1EC\U0001F1E7英国03"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯01-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯02-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯03-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯04-下载&防失联-0.1X"
+  url: http://www.gstatic.com/generate_204
+  interval: 86400
+- name: 故障转移
+  type: fallback
+  proxies:
+  - 建议每次使用前都更新一下订阅
+  - "\U0001F1ED\U0001F1F0香港1"
+  - "\U0001F1ED\U0001F1F0香港2"
+  - "\U0001F1F8\U0001F1EC新加坡1"
+  - "\U0001F1F8\U0001F1EC新加坡2"
+  - "\U0001F1F8\U0001F1EC新加坡3"
+  - "\U0001F1E8\U0001F1F3台湾1-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾2-Gpt"
+  - "\U0001F1EF\U0001F1F5日本1"
+  - "\U0001F1EF\U0001F1F5日本2"
+  - "\U0001F1F0\U0001F1F7韩国-家宽"
+  - "\U0001F1F9\U0001F1ED曼谷"
+  - "\U0001F1EE\U0001F1E9印尼"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯"
+  - "\U0001F1FA\U0001F1F8凤凰城"
+  - "\U0001F1FA\U0001F1F8圣何塞"
+  - "\U0001F1E8\U0001F1E6加拿大"
+  - "\U0001F1E9\U0001F1EA德国"
+  - "\U0001F1EC\U0001F1E7英国"
+  - "\U0001F1ED\U0001F1F0香港01-IPv6"
+  - "\U0001F1ED\U0001F1F0香港02-IPv6"
+  - "\U0001F1ED\U0001F1F0香港03-IPv6"
+  - "\U0001F1ED\U0001F1F0香港04-IPv6"
+  - "\U0001F1ED\U0001F1F0香港05-流媒体解锁"
+  - "\U0001F1ED\U0001F1F0香港06-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡01-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡02-流媒体解锁"
+  - "\U0001F1F8\U0001F1EC新加坡03"
+  - "\U0001F1F8\U0001F1EC新加坡04"
+  - "\U0001F1F0\U0001F1F7韩国-家宽03"
+  - "\U0001F1F0\U0001F1F7韩国-家宽04"
+  - "\U0001F1E8\U0001F1F3台湾01-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾02-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾03-Gpt"
+  - "\U0001F1E8\U0001F1F3台湾04-Gpt"
+  - "\U0001F1EF\U0001F1F5日本01"
+  - "\U0001F1EF\U0001F1F5日本02"
+  - "\U0001F1EF\U0001F1F5日本03"
+  - "\U0001F1EF\U0001F1F5日本04"
+  - "\U0001F1E8\U0001F1E6加拿大01"
+  - "\U0001F1E8\U0001F1E6加拿大02"
+  - "\U0001F1FA\U0001F1F8美国凤凰城01"
+  - "\U0001F1FA\U0001F1F8美国凤凰城02"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯01"
+  - "\U0001F1FA\U0001F1F8美国拉斯维加斯02"
+  - "\U0001F1FA\U0001F1F8美国圣何塞01"
+  - "\U0001F1FA\U0001F1F8美国圣何塞02"
+  - "\U0001F1E9\U0001F1EA德国01"
+  - "\U0001F1E9\U0001F1EA德国02"
+  - "\U0001F1EC\U0001F1E7英国01"
+  - "\U0001F1EC\U0001F1E7英国02"
+  - "\U0001F1EC\U0001F1E7英国03"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯01-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯02-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯03-下载&防失联-0.1X"
+  - "\U0001F1FA\U0001F1F8拉斯维加斯04-下载&防失联-0.1X"
+  url: http://www.gstatic.com/generate_204
+  interval: 7200
+rules:
+- IP-CIDR,141.101.120.117/32,DIRECT,no-resolve
+- IP-CIDR,141.101.121.206/32,DIRECT,no-resolve
+- IP-CIDR,69.16.230.165/32,DIRECT,no-resolve
+- IP-CIDR,104.21.72.233/32,DIRECT,no-resolve
+- IP-CIDR,172.67.155.172/32,DIRECT,no-resolve
+- IP-CIDR,104.16.155.10/32,DIRECT,no-resolve
+- IP-CIDR,198.41.209.70/32,DIRECT,no-resolve
+- IP-CIDR,104.19.48.236/32,DIRECT,no-resolve
+- IP-CIDR,104.17.221.248/32,DIRECT,no-resolve
+- IP-CIDR,104.17.213.241/32,DIRECT,no-resolve
+- IP-CIDR,91.149.202.185/32,DIRECT,no-resolve
+- IP-CIDR,185.161.251.40/32,DIRECT,no-resolve
+- IP-CIDR,147.45.177.95/32,DIRECT,no-resolve
+- IP-CIDR,166.88.164.253/32,DIRECT,no-resolve
+- IP-CIDR,89.185.80.192/32,DIRECT,no-resolve
+- IP-CIDR,205.185.118.99/32,DIRECT,no-resolve
+- IP-CIDR,38.244.146.18/32,DIRECT,no-resolve
+- IP-CIDR,103.117.151.7/32,DIRECT,no-resolve
+- IP-CIDR,182.231.189.244/32,DIRECT,no-resolve
+- IP-CIDR,151.248.68.232/32,DIRECT,no-resolve
+- IP-CIDR,45.88.43.109/32,DIRECT,no-resolve
+- IP-CIDR,1.162.180.51/32,DIRECT,no-resolve
+- IP-CIDR,111.243.77.252/32,DIRECT,no-resolve
+- IP-CIDR,38.180.249.144/32,DIRECT,no-resolve
+- IP-CIDR,38.180.191.46/32,DIRECT,no-resolve
+- IP-CIDR,194.87.10.213/32,DIRECT,no-resolve
+- IP-CIDR,85.208.72.81/32,DIRECT,no-resolve
+- IP-CIDR,85.208.72.54/32,DIRECT,no-resolve
+- IP-CIDR,36.111.204.252/32,DIRECT,no-resolve
+- DOMAIN,zhuzhusub.66jc.top,DIRECT
+- "DOMAIN-SUFFIX,services.googleapis.cn,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,\U0001F42E牛逼"
+- DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+- DOMAIN,safebrowsing.googleapis.com,DIRECT
+- "DOMAIN,developer.apple.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,digicert.com,\U0001F42E牛逼"
+- "DOMAIN,ocsp.apple.com,\U0001F42E牛逼"
+- "DOMAIN,ocsp.comodoca.com,\U0001F42E牛逼"
+- "DOMAIN,ocsp.usertrust.com,\U0001F42E牛逼"
+- "DOMAIN,ocsp.sectigo.com,\U0001F42E牛逼"
+- "DOMAIN,ocsp.verisign.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,apple-dns.net,\U0001F42E牛逼"
+- "DOMAIN,testflight.apple.com,\U0001F42E牛逼"
+- "DOMAIN,sandbox.itunes.apple.com,\U0001F42E牛逼"
+- "DOMAIN,itunes.apple.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,apps.apple.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blobstore.apple.com,\U0001F42E牛逼"
+- "DOMAIN,cvws.icloud-content.com,\U0001F42E牛逼"
+- DOMAIN-SUFFIX,mzstatic.com,DIRECT
+- DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+- DOMAIN-SUFFIX,icloud.com,DIRECT
+- DOMAIN-SUFFIX,icloud-content.com,DIRECT
+- DOMAIN-SUFFIX,me.com,DIRECT
+- DOMAIN-SUFFIX,aaplimg.com,DIRECT
+- DOMAIN-SUFFIX,cdn20.com,DIRECT
+- DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+- DOMAIN-SUFFIX,akadns.net,DIRECT
+- DOMAIN-SUFFIX,akamaiedge.net,DIRECT
+- DOMAIN-SUFFIX,edgekey.net,DIRECT
+- DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT
+- DOMAIN-SUFFIX,mwcname.com,DIRECT
+- DOMAIN-SUFFIX,apple.com,DIRECT
+- DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
+- DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+- DOMAIN-SUFFIX,126.com,DIRECT
+- DOMAIN-SUFFIX,126.net,DIRECT
+- DOMAIN-SUFFIX,127.net,DIRECT
+- DOMAIN-SUFFIX,163.com,DIRECT
+- DOMAIN-SUFFIX,360buyimg.com,DIRECT
+- DOMAIN-SUFFIX,36kr.com,DIRECT
+- DOMAIN-SUFFIX,acfun.tv,DIRECT
+- DOMAIN-SUFFIX,air-matters.com,DIRECT
+- DOMAIN-SUFFIX,aixifan.com,DIRECT
+- DOMAIN-KEYWORD,alicdn,DIRECT
+- DOMAIN-KEYWORD,alipay,DIRECT
+- DOMAIN-KEYWORD,taobao,DIRECT
+- DOMAIN-SUFFIX,amap.com,DIRECT
+- DOMAIN-SUFFIX,autonavi.com,DIRECT
+- DOMAIN-KEYWORD,baidu,DIRECT
+- DOMAIN-SUFFIX,bdimg.com,DIRECT
+- DOMAIN-SUFFIX,bdstatic.com,DIRECT
+- DOMAIN-SUFFIX,bilibili.com,DIRECT
+- DOMAIN-SUFFIX,bilivideo.com,DIRECT
+- DOMAIN-SUFFIX,caiyunapp.com,DIRECT
+- DOMAIN-SUFFIX,clouddn.com,DIRECT
+- DOMAIN-SUFFIX,cnbeta.com,DIRECT
+- DOMAIN-SUFFIX,cnbetacdn.com,DIRECT
+- DOMAIN-SUFFIX,cootekservice.com,DIRECT
+- DOMAIN-SUFFIX,csdn.net,DIRECT
+- DOMAIN-SUFFIX,ctrip.com,DIRECT
+- DOMAIN-SUFFIX,dgtle.com,DIRECT
+- DOMAIN-SUFFIX,dianping.com,DIRECT
+- DOMAIN-SUFFIX,douban.com,DIRECT
+- DOMAIN-SUFFIX,doubanio.com,DIRECT
+- DOMAIN-SUFFIX,duokan.com,DIRECT
+- DOMAIN-SUFFIX,easou.com,DIRECT
+- DOMAIN-SUFFIX,ele.me,DIRECT
+- DOMAIN-SUFFIX,feng.com,DIRECT
+- DOMAIN-SUFFIX,fir.im,DIRECT
+- DOMAIN-SUFFIX,frdic.com,DIRECT
+- DOMAIN-SUFFIX,g-cores.com,DIRECT
+- DOMAIN-SUFFIX,godic.net,DIRECT
+- DOMAIN-SUFFIX,gtimg.com,DIRECT
+- DOMAIN,cdn.hockeyapp.net,DIRECT
+- DOMAIN-SUFFIX,hongxiu.com,DIRECT
+- DOMAIN-SUFFIX,hxcdn.net,DIRECT
+- DOMAIN-SUFFIX,iciba.com,DIRECT
+- DOMAIN-SUFFIX,ifeng.com,DIRECT
+- DOMAIN-SUFFIX,ifengimg.com,DIRECT
+- DOMAIN-SUFFIX,ipip.net,DIRECT
+- DOMAIN-SUFFIX,iqiyi.com,DIRECT
+- DOMAIN-SUFFIX,jd.com,DIRECT
+- DOMAIN-SUFFIX,jianshu.com,DIRECT
+- DOMAIN-SUFFIX,knewone.com,DIRECT
+- DOMAIN-SUFFIX,le.com,DIRECT
+- DOMAIN-SUFFIX,lecloud.com,DIRECT
+- DOMAIN-SUFFIX,lemicp.com,DIRECT
+- DOMAIN-SUFFIX,licdn.com,DIRECT
+- DOMAIN-SUFFIX,luoo.net,DIRECT
+- DOMAIN-SUFFIX,meituan.com,DIRECT
+- DOMAIN-SUFFIX,meituan.net,DIRECT
+- DOMAIN-SUFFIX,mi.com,DIRECT
+- DOMAIN-SUFFIX,miaopai.com,DIRECT
+- DOMAIN-SUFFIX,microsoft.com,DIRECT
+- DOMAIN-SUFFIX,microsoftonline.com,DIRECT
+- DOMAIN-SUFFIX,miui.com,DIRECT
+- DOMAIN-SUFFIX,miwifi.com,DIRECT
+- DOMAIN-SUFFIX,mob.com,DIRECT
+- DOMAIN-SUFFIX,netease.com,DIRECT
+- DOMAIN-SUFFIX,office.com,DIRECT
+- DOMAIN-SUFFIX,office365.com,DIRECT
+- DOMAIN-KEYWORD,officecdn,DIRECT
+- DOMAIN-SUFFIX,oschina.net,DIRECT
+- DOMAIN-SUFFIX,ppsimg.com,DIRECT
+- DOMAIN-SUFFIX,pstatp.com,DIRECT
+- DOMAIN-SUFFIX,qcloud.com,DIRECT
+- DOMAIN-SUFFIX,qdaily.com,DIRECT
+- DOMAIN-SUFFIX,qdmm.com,DIRECT
+- DOMAIN-SUFFIX,qhimg.com,DIRECT
+- DOMAIN-SUFFIX,qhres.com,DIRECT
+- DOMAIN-SUFFIX,qidian.com,DIRECT
+- DOMAIN-SUFFIX,qihucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiniu.com,DIRECT
+- DOMAIN-SUFFIX,qiniucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiyipic.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,qqurl.com,DIRECT
+- DOMAIN-SUFFIX,rarbg.to,DIRECT
+- DOMAIN-SUFFIX,ruguoapp.com,DIRECT
+- DOMAIN-SUFFIX,segmentfault.com,DIRECT
+- DOMAIN-SUFFIX,sinaapp.com,DIRECT
+- DOMAIN-SUFFIX,smzdm.com,DIRECT
+- DOMAIN-SUFFIX,snapdrop.net,DIRECT
+- DOMAIN-SUFFIX,sogou.com,DIRECT
+- DOMAIN-SUFFIX,sogoucdn.com,DIRECT
+- DOMAIN-SUFFIX,sohu.com,DIRECT
+- DOMAIN-SUFFIX,soku.com,DIRECT
+- DOMAIN-SUFFIX,speedtest.net,DIRECT
+- DOMAIN-SUFFIX,sspai.com,DIRECT
+- DOMAIN-SUFFIX,suning.com,DIRECT
+- DOMAIN-SUFFIX,taobao.com,DIRECT
+- DOMAIN-SUFFIX,tencent.com,DIRECT
+- DOMAIN-SUFFIX,tenpay.com,DIRECT
+- DOMAIN-SUFFIX,tianyancha.com,DIRECT
+- DOMAIN-SUFFIX,tmall.com,DIRECT
+- DOMAIN-SUFFIX,tudou.com,DIRECT
+- DOMAIN-SUFFIX,umetrip.com,DIRECT
+- DOMAIN-SUFFIX,upaiyun.com,DIRECT
+- DOMAIN-SUFFIX,upyun.com,DIRECT
+- DOMAIN-SUFFIX,veryzhun.com,DIRECT
+- DOMAIN-SUFFIX,weather.com,DIRECT
+- DOMAIN-SUFFIX,weibo.com,DIRECT
+- DOMAIN-SUFFIX,xiami.com,DIRECT
+- DOMAIN-SUFFIX,xiami.net,DIRECT
+- DOMAIN-SUFFIX,xiaomicp.com,DIRECT
+- DOMAIN-SUFFIX,ximalaya.com,DIRECT
+- DOMAIN-SUFFIX,xmcdn.com,DIRECT
+- DOMAIN-SUFFIX,xunlei.com,DIRECT
+- DOMAIN-SUFFIX,yhd.com,DIRECT
+- DOMAIN-SUFFIX,yihaodianimg.com,DIRECT
+- DOMAIN-SUFFIX,yinxiang.com,DIRECT
+- DOMAIN-SUFFIX,ykimg.com,DIRECT
+- DOMAIN-SUFFIX,youdao.com,DIRECT
+- DOMAIN-SUFFIX,youku.com,DIRECT
+- DOMAIN-SUFFIX,zealer.com,DIRECT
+- DOMAIN-SUFFIX,zhihu.com,DIRECT
+- DOMAIN-SUFFIX,zhimg.com,DIRECT
+- DOMAIN-SUFFIX,zimuzu.tv,DIRECT
+- DOMAIN-SUFFIX,zoho.com,DIRECT
+- "DOMAIN-KEYWORD,amazon,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,google,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,gmail,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,youtube,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,facebook,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fb.me,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fbcdn.net,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,twitter,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,instagram,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,dropbox,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,twimg.com,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,blogspot,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,youtu.be,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,whatsapp,\U0001F42E牛逼"
+- DOMAIN-KEYWORD,admarvel,REJECT
+- DOMAIN-KEYWORD,admaster,REJECT
+- DOMAIN-KEYWORD,adsage,REJECT
+- DOMAIN-KEYWORD,adsmogo,REJECT
+- DOMAIN-KEYWORD,adsrvmedia,REJECT
+- DOMAIN-KEYWORD,adwords,REJECT
+- DOMAIN-KEYWORD,adservice,REJECT
+- DOMAIN-SUFFIX,appsflyer.com,REJECT
+- DOMAIN-KEYWORD,domob,REJECT
+- DOMAIN-SUFFIX,doubleclick.net,REJECT
+- DOMAIN-KEYWORD,duomeng,REJECT
+- DOMAIN-KEYWORD,dwtrack,REJECT
+- DOMAIN-KEYWORD,guanggao,REJECT
+- DOMAIN-KEYWORD,lianmeng,REJECT
+- DOMAIN-SUFFIX,mmstat.com,REJECT
+- DOMAIN-KEYWORD,mopub,REJECT
+- DOMAIN-KEYWORD,omgmta,REJECT
+- DOMAIN-KEYWORD,openx,REJECT
+- DOMAIN-KEYWORD,partnerad,REJECT
+- DOMAIN-KEYWORD,pingfore,REJECT
+- DOMAIN-KEYWORD,supersonicads,REJECT
+- DOMAIN-KEYWORD,uedas,REJECT
+- DOMAIN-KEYWORD,umeng,REJECT
+- DOMAIN-KEYWORD,usage,REJECT
+- DOMAIN-SUFFIX,vungle.com,REJECT
+- DOMAIN-KEYWORD,wlmonitor,REJECT
+- DOMAIN-KEYWORD,zjtoolbar,REJECT
+- "DOMAIN-SUFFIX,9to5mac.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,abpchina.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,adblockplus.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,adobe.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,akamaized.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,alfredapp.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,amplitude.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ampproject.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,android.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,angularjs.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,aolcdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,apkpure.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,appledaily.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,appshopper.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,appspot.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,arcgis.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,archive.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,armorgames.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,aspnetcdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,att.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,awsstatic.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,azureedge.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,azurewebsites.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bing.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bintray.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bit.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bit.ly,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bitbucket.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bjango.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bkrtx.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blog.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blogcdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blogger.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blogsmithmedia.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blogspot.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,blogspot.hk,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,bloomberg.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,box.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,box.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cachefly.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,chromium.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cl.ly,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cloudflare.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cloudfront.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cloudmagic.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cmail19.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cnet.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,cocoapods.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,comodoca.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,crashlytics.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,culturedcode.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,d.pr,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,danilo.to,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,dayone.me,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,db.tt,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,deskconnect.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,disq.us,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,disqus.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,disquscdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,dnsimple.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,docker.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,dribbble.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,droplr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,duckduckgo.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,dueapp.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,dytt8.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,edgecastcdn.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,edgekey.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,edgesuite.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,engadget.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,entrust.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,eurekavpt.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,evernote.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fabric.io,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fast.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fastly.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fc2.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,feedburner.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,feedly.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,feedsportal.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,fiftythree.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,firebaseio.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,flexibits.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,flickr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,flipboard.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,g.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gabia.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,geni.us,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gfx.ms,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ggpht.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ghostnoteapp.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,git.io,\U0001F42E牛逼"
+- "DOMAIN-KEYWORD,github,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,globalsign.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gmodules.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,godaddy.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,golang.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gongm.in,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,goo.gl,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,goodreaders.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,goodreads.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gravatar.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gstatic.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,gvt0.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,hockeyapp.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,hotmail.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,icons8.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ifixit.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ift.tt,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ifttt.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,iherb.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,imageshack.us,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,img.ly,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,imgur.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,imore.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,instapaper.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ipn.li,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,is.gd,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,issuu.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,itgonglun.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,itun.es,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ixquick.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,j.mp,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,js.revsci.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,jshint.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,jtvnw.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,justgetflux.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,kat.cr,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,klip.me,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,libsyn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,linkedin.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,line-apps.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,linode.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,lithium.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,littlehj.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,live.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,live.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,livefilestore.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,llnwd.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,macid.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,macromedia.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,macrumors.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mashable.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mathjax.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,medium.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mega.co.nz,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mega.nz,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,megaupload.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,microsofttranslator.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mindnode.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,mobile01.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,modmyi.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,msedge.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,myfontastic.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,name.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,nextmedia.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,nsstatic.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,nssurge.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,nyt.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,nytimes.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,omnigroup.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,onedrive.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,onenote.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ooyala.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,openvpn.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,openwrt.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,orkut.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,osxdaily.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,outlook.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ow.ly,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,paddleapi.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,parallels.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,parse.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pdfexpert.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,periscope.tv,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pinboard.in,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pinterest.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pixelmator.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pixiv.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,playpcesor.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,playstation.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,playstation.com.hk,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,playstation.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,playstationnetwork.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,pushwoosh.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,rime.im,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,servebom.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sfx.ms,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,shadowsocks.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sharethis.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,shazam.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,skype.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,smartdns\U0001F42E牛逼.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,smartmailcloud.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sndcdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sony.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,soundcloud.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sourceforge.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,spotify.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,squarespace.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,sstatic.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,st.luluku.pw,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,stackoverflow.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,startpage.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,staticflickr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,steamcommunity.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,symauth.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,symcb.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,symcd.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tapbots.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tapbots.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tdesktop.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,techcrunch.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,techsmith.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,thepiratebay.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,theverge.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,time.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,timeinc.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tiny.cc,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tinypic.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tmblr.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,todoist.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,trello.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,trustasiassl.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tumblr.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tumblr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tweetdeck.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,tweetmarker.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,twitch.tv,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,txmblr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,typekit.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ubertags.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ublock.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ubnt.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ulyssesapp.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,urchin.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,usertrust.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,v.gd,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,v2ex.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vimeo.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vimeocdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vine.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vivaldi.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vox-cdn.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vsco.co,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,vultr.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,w.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,w3schools.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,webtype.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wikiwand.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wikileaks.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wikimedia.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wikipedia.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wikipedia.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,windows.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,windows.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wire.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wordpress.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,workflowy.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wp.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wsj.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,wsj.net,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,xda-developers.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,xeeno.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,xiti.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,yahoo.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,yimg.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ying.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,yoyo.org,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,ytimg.com,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,telegra.ph,\U0001F42E牛逼"
+- "DOMAIN-SUFFIX,telegram.org,\U0001F42E牛逼"
+- "IP-CIDR,91.108.4.0/22,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,91.108.8.0/21,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,91.108.16.0/22,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,91.108.56.0/22,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,149.154.160.0/20,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR6,2001:67c:4e8::/48,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR6,2001:b28:f23d::/48,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR6,2001:b28:f23f::/48,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.232.181.162/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.241.147.226/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.253.253.226/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.253.255.162/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.253.255.34/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,120.253.255.98/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,180.163.150.162/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,180.163.150.34/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,180.163.151.162/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,180.163.151.34/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,203.208.39.0/24,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,203.208.40.0/24,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,203.208.41.0/24,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,203.208.43.0/24,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,203.208.50.0/24,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,220.181.174.162/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,220.181.174.226/32,\U0001F42E牛逼,no-resolve"
+- "IP-CIDR,220.181.174.34/32,\U0001F42E牛逼,no-resolve"
+- DOMAIN,injections.adguard.org,DIRECT
+- DOMAIN,local.adguard.org,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT
+- IP-CIDR6,fe80::/10,DIRECT
+- DOMAIN-SUFFIX,cn,DIRECT
+- DOMAIN-KEYWORD,-cn,DIRECT
+- GEOIP,CN,DIRECT
+- "MATCH,\U0001F42E牛逼"
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+secret: f9XVqfJh
+external-ui: "/usr/share/openclash/ui"
+keep-alive-interval: 15
+keep-alive-idle: 600
+ipv6: false
+profile:
+  store-selected: true
+authentication:
+- Clash:5LZYMfSb
