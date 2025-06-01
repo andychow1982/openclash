@@ -1,6 +1,6 @@
 # 机场订阅
 proxy-providers:
-  Airport1:
+  Mitce:
     url: "https://app.mitce.net/?sid=255936&token=974e8657cf0b50e1b318"
     type: http
     interval: 86400
@@ -9,7 +9,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 直连
-  Airport2:
+  牛逼:
     url: "http://8.138.135.231:8090/api/v1/client/subscribe?token=75833ade8d206481c7b51b4e9a6c2efe"
     type: http
     interval: 86400
